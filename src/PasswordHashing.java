@@ -11,7 +11,7 @@ public class PasswordHashing {
         return Base64.getEncoder().encodeToString(hashedPassword);
     }
 
-    public byte[] generateSalt(){
+    private byte[] generateSalt(){
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[16];
         random.nextBytes(salt);
