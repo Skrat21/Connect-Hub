@@ -44,7 +44,6 @@ public class userCredentials {
             Type mapType = new TypeToken<Map<String, String>>() {}.getType();
             credentialsMap = gson.fromJson(reader, mapType);
         } catch (IOException e) {
-            // If the file doesn't exist or is empty, return an empty map
             System.out.println("Error reading JSON file: " + e.getMessage());
         }
         return credentialsMap;
