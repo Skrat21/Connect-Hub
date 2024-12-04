@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class NewsfeedPage{
 
     private ArrayList<Content> contents;
-
     public NewsfeedPage(ArrayList<Content> contents) {
         this.contents = new ArrayList<>(contents);
     }
@@ -25,6 +24,18 @@ public class NewsfeedPage{
             }
         }
         return userContents;
+    }
+    public ArrayList<Content> getFriendsContents(String[] id) {
+        ArrayList<Content> friendsContent = new ArrayList<>();
+        for (int i = 0; i < id.length; i++) {
+    for (int j = 0; j < contents.size(); j++) {
+            Content content = contents.get(j);
+            if (content.getAuthorId().equals(id[i])){
+                friendsContent.add(content);
+            }
+        }
+}
+        return friendsContent;
     }
 
     public ArrayList<Content> getStories() {

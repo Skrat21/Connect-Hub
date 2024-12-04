@@ -5,7 +5,7 @@ public class Story extends Content {
     private Date expiredTime;
     private boolean available;
 
-    public Story(String contentId, String authorId, String content, String imgPath) {
+    public Story(String contentId, String authorId, String content, String[] imgPath) {
         super(contentId, authorId, content, imgPath);
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(timestamp);
