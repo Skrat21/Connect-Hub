@@ -48,4 +48,9 @@ public class userCredentials {
         }
         return credentialsMap;
     }
+
+    public static Boolean findUser(String email) {
+        Map<String, String> credentials = readJsonFile();
+        return credentials.containsKey(email);
+    }
 }
