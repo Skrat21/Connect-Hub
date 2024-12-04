@@ -1,4 +1,0 @@
-fi
-test
-test
-m
