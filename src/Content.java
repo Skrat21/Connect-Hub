@@ -27,5 +27,21 @@ public abstract class Content {
         }
         return randomString.toString();
     }
+
+    public String getAuthorId() {
+        return authorId;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public String getContentId() {
+        return contentId;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
 }
 

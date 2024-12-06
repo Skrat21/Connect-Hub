@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class ContentDatabase {
-    public static void storeContent(String [] imagePaths,String contentId) throws IOException {
+    private static ContentDatabase contentDatabaseInstance = null;
+
+    public void storeContent(String[] imagePaths, String contentId) throws IOException {
         File contentDatabaseFolder = new File("Content Database");
         if (!contentDatabaseFolder.exists()) {
             contentDatabaseFolder.mkdir();
@@ -35,7 +37,7 @@ public class ContentDatabase {
         }
     }
 
-    private static String getFileExtension(String fileName) {
+    private String getFileExtension(String fileName) {
         int dotIndex = fileName.lastIndexOf('.');
         if (dotIndex > 0 && dotIndex < fileName.length() - 1) {
             return fileName.substring(dotIndex + 1).toLowerCase();
@@ -43,7 +45,7 @@ public class ContentDatabase {
         return null;
     }
 
-    public static void deleteContent(String contentId) throws IOException {
+    public void deleteContent(String contentId) throws IOException {
         File contentDatabase = new File("Content Database");
         File contentFolder = new File(contentDatabase, contentId);
 
@@ -60,6 +62,15 @@ public class ContentDatabase {
         contentFolder.delete();
     }
 
+    public ContentDatabase getInstance() {
+        if (contentDatabaseInstance == null) {
+            contentDatabaseInstance = new ContentDatabase();
+        }
+        return contentDatabaseInstance;
+    }
+
+    private ContentDatabase() {
+    }
 }
 
 
