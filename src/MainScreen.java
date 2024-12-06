@@ -21,10 +21,13 @@ public class MainScreen extends JFrame {
     private JButton showPendingInvitesButton;
     private JButton showFriendRequestsButton;
 
-    public MainScreen() {
+    public MainScreen(User user) {
+        BackEnd backEnd = BackEnd.getInstance();
+        ContentDatabase contentDatabase = ContentDatabase.getInstance();
         setVisible(true);
         setContentPane(panel1);
-        contentPanel.add(new ContentPanel());//from backend list of content
-        friendsContentPage.add(new ())
+        contentPanel.add(new ContentPanel(contentDatabase));//from backend list of content
+        friendsContentPage.add(new ContentPanel(contentDatabase));
+
     }
 }
