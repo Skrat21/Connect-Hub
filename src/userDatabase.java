@@ -5,8 +5,8 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class UserDatabase {
-    private static UserDatabase userDatabaseInstance = null;
+public class userDatabase {
+    private static userDatabase userDatabaseInstance = null;
     public void storeUser(User user) {
         ArrayList<User> users = readJsonFile();
         users.add(user);
@@ -23,7 +23,20 @@ public class UserDatabase {
         return null;
     }
 
+
+    public static User getUserUsingEmail(String email) {
+        ArrayList<User> users = readJsonFile();
+        for (User user : users) {
+            if (user.getEmail().equals(email)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+
     public Boolean findUserName(String userName){
+
         ArrayList<User> users = readJsonFile();
         for (User user : users) {
             if (user.getUsername().equals(userName)) {
@@ -56,15 +69,15 @@ public class UserDatabase {
         }
     }
     //singleton design pattern
-    public synchronized static UserDatabase getInstance()
+    public synchronized static userDatabase getInstance()
     {
         if(userDatabaseInstance==null)
         {
-            userDatabaseInstance = new UserDatabase();
+            userDatabaseInstance = new userDatabase();
         }
         return userDatabaseInstance;
     }
-    private UserDatabase() {
+    private userDatabase() {
 
     }
 

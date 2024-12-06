@@ -1,6 +1,8 @@
+import java.io.IOException;
+
 public class Post extends Content{
 
-    public Post(String contentId, String authorId, String content, String[] imgPath) {
-        super(contentId, authorId, content, imgPath);
+    public Post(String authorId, String[] imgPath, String content) throws IOException {
+        super(authorId, imgPath, content);
     }
 }

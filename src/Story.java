@@ -1,24 +1,12 @@
-import java.util.Calendar;
-import java.util.Date;
+import java.io.IOException;
+import java.time.LocalDateTime;
 
 public class Story extends Content {
-    private Date expiredTime;
+    private LocalDateTime expiredTime;
     private boolean available;
 
-    public Story(String contentId, String authorId, String content, String[] imgPath) {
-        super(contentId, authorId, content, imgPath);
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(timestamp);
-        calendar.add(Calendar.HOUR, 24);
-        this.expiredTime = calendar.getTime();
-        Date currentTime = new Date();
-        this.available = currentTime.before(this.expiredTime);
-    }
-
-    public Date getExpiredTime() {
-        return (expiredTime);
-    }
-    public boolean IsAvailable() {
-        return available;
+    public Story(String authorId,String[] imgPath, String content) throws IOException {
+        super(authorId,imgPath, content);
+        this.expiredTime = timestamp.plusDays(1);
     }
 }

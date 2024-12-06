@@ -1,41 +1,31 @@
-import java.time.LocalDate;
+import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.Random;
 
 public abstract class Content {
     protected String contentId;
     protected String authorId;
-    protected String content;
-    protected final Date timestamp;
-    protected String[] imgPath;
+    protected final LocalDateTime timestamp;
+    protected  String content;
 
-    //the constructor :)
-    public Content(String contentId, String authorId, String content, String[] imgPath) {
-        this.contentId = contentId;
+    public Content(String authorId, String[] imgPaths,String content) throws IOException {
+        this.contentId = createContentId();
         this.authorId = authorId;
+        this.timestamp = LocalDateTime.now();
         this.content = content;
-        this.imgPath = imgPath;
-        this.timestamp = new Date();
-    }
-    //getters :)
-    public String getContentId() {
-        return contentId;
+        ContentDatabase.storeContent(imgPaths, this.contentId);
     }
 
-    public String getAuthorId() {
-        return authorId;
+    public String createContentId(){
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        int length = 9;
+        StringBuilder randomString = new StringBuilder(length);
+        Random random = new Random();
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(characters.length());
+            randomString.append(characters.charAt(index));
+        }
+        return randomString.toString();
     }
-
-    public String getContent() {
-        return content;
-    }
-
-    public Date getTimestamp() {
-        return timestamp;
-    }
-    public String[] getImagePath() {
-        return imgPath;
-    }
-
 }
 
