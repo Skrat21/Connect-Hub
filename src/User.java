@@ -23,6 +23,11 @@ public class User {
         blockedList = new ArrayList<>();
     }
 
+
+    public Profile getProfile(){
+        return this.profile;
+    }
+  
     public void addProfile (Profile profile){
         this.profile = profile;
     }

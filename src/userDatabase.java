@@ -6,13 +6,14 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class userDatabase {
-    public static void storeUser(User user) {
+    private static userDatabase userDatabaseInstance = null;
+    public void storeUser(User user) {
         ArrayList<User> users = readJsonFile();
         users.add(user);
         writeJsonFile(users);
     }
 
-    public static User getUser(String userId) {
+    public User getUser(String userId) {
         ArrayList<User> users = readJsonFile();
         for (User user : users) {
             if (user.getUserId().equals(userId)) {
@@ -21,6 +22,7 @@ public class userDatabase {
         }
         return null;
     }
+
 
     public static User getUserUsingEmail(String email) {
         ArrayList<User> users = readJsonFile();
@@ -32,7 +34,9 @@ public class userDatabase {
         return null;
     }
 
-    public static Boolean findUserName(String userName){
+
+    public Boolean findUserName(String userName){
+
         ArrayList<User> users = readJsonFile();
         for (User user : users) {
             if (user.getUsername().equals(userName)) {
@@ -42,7 +46,7 @@ public class userDatabase {
         return false;
     }
 
-    public static ArrayList<User> readJsonFile(){
+    public ArrayList<User> readJsonFile(){
         try (Reader reader = new FileReader("users.json")) {
             Type listType = new TypeToken<ArrayList<User>>() {}.getType();
             Gson gson = new Gson();
@@ -56,7 +60,7 @@ public class userDatabase {
         }
     }
 
-    private static void writeJsonFile(ArrayList<User> users) {
+    private void writeJsonFile(ArrayList<User> users) {
         try (Writer writer = new FileWriter("users.json")) {
             Gson gson = new Gson();
             gson.toJson(users, writer);
@@ -64,4 +68,17 @@ public class userDatabase {
             e.printStackTrace();
         }
     }
+    //singleton design pattern
+    public synchronized static userDatabase getInstance()
+    {
+        if(userDatabaseInstance==null)
+        {
+            userDatabaseInstance = new userDatabase();
+        }
+        return userDatabaseInstance;
+    }
+    private userDatabase() {
+
+    }
+
 }
