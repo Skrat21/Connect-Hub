@@ -13,7 +13,7 @@ public abstract class Content {
         this.authorId = authorId;
         this.timestamp = LocalDateTime.now();
         this.content = content;
-        ContentDatabase.storeContent(imgPaths, this.contentId);
+        ImageDatabase.storeContent(imgPaths, this.contentId);
     }
 
     public String createContentId(){

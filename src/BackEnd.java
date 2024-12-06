@@ -7,6 +7,7 @@ public class BackEnd {
     private static BackEnd backEndInstance = BackEnd.getInstance();
     private static final UserDatabase userDatabase = UserDatabase.getInstance();
     private static final UserCredentials userCredentials = UserCredentials.getUserCredentialsInstance();
+    private static final ImageDatabase contentDatabase = ImageDatabase.getInstance();
     private static final FriendManagementDataBase friendManagementDatabase = FriendManagementDataBase.getInstance();
     public  Boolean checkEmail(String email) {
         return !userCredentials.findUser(email);
@@ -42,6 +43,7 @@ public class BackEnd {
         else{
             Content content = new Post(userId, imagePaths, description);
         }
+        Con
     }
 
 

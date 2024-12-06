@@ -22,35 +22,6 @@ public class FriendManagement {
         return new ArrayList<>(friendManagementDataBase.getFriendshipData(userId).getFriendsListIds());
     }
 
-    private boolean validRequest(String senderId, String receiverName) {
-        User receiver = userDatabase.getUserUsingUsername(receiverName);
-        if (receiver == null) {
-            return false;//receiver doesn't exist
-        }
-
-        String receiverId = receiver.getUserId();
-
-        String reciverId = receiver.getUserId();
-        FriendManagementData dataOfSender = friendManagementDataBase.getFriendshipData(senderId);
-
-
-        /*/ added for thread safety*/
-        if (dataOfSender.getBlockedListIds().contains(reciverId)) {
-            return false; // sender blocked user;
-        }
-
-        FriendManagementData dataOfReceiver = friendManagementDataBase.getFriendshipData(reciverId);
-        if (dataOfReceiver.getBlockedListIds().contains(senderId)) {
-            return false; // receiver blocked sender acts as if receiver doesn't exist
-        }
-
-        /*/ for thread safety */
-        if (dataOfSender.getFriendsListIds().contains(reciverId) || dataOfReceiver.getFriendsListIds().contains(senderId)) {
-            return false; //if already friends
-        }
-
-        return true;
-    }
 
 
     public boolean addRequest(String senderId, String receiverName) {
