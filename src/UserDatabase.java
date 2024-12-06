@@ -5,8 +5,8 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class userDatabase {
-    private static userDatabase userDatabaseInstance = null;
+public class UserDatabase {
+    private static UserDatabase userDatabaseInstance = null;
     public void storeUser(User user) {
         ArrayList<User> users = readJsonFile();
         users.add(user);
@@ -56,15 +56,15 @@ public class userDatabase {
         }
     }
     //singleton design pattern
-    public synchronized static userDatabase getInstance()
+    public synchronized static UserDatabase getInstance()
     {
         if(userDatabaseInstance==null)
         {
-            userDatabaseInstance = new userDatabase();
+            userDatabaseInstance = new UserDatabase();
         }
         return userDatabaseInstance;
     }
-    private userDatabase() {
+    private UserDatabase() {
 
     }
 
