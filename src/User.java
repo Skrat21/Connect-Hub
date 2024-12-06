@@ -26,10 +26,8 @@ public class User {
         blockedList = new ArrayList<>();
     }
 
-    public JsonObject getProfile(){
-        Gson gson = new Gson();
-        String json = gson.toJson(profile);
-        return gson.fromJson(json, JsonObject.class);
+    public Profile getProfile(){
+        return this.profile;
     }
 
     public void addProfile (Profile profile){
