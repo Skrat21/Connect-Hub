@@ -3,11 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Scanner;
 
 
 public class AddPost extends JFrame {
@@ -82,7 +79,7 @@ public class AddPost extends JFrame {
     }
 
     public static void main(String[] args) {
-        User user = new User("example@example.com", "john_doe", new Date());
+        User user = new UserBuilder("example@example.com", "john_doe", new Date());
         AddPost addPost = new AddPost(user);
     }
 

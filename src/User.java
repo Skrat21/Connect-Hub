@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
@@ -9,15 +8,25 @@ public class User {
     private Date dateOfBirth;
     private Boolean status;
     private Profile profile;
-    private final FriendManagementDataBase friendManagementDataBase = FriendManagementDataBase.getInstance();
+
 
     public User(String email, String username, Date dateOfBirth) {
         this.email = email;
         this.username = username;
-        this.userId = createUserId();
         this.dateOfBirth = dateOfBirth;
-        status = false;
-        friendManagementDataBase.storeFriendshipData(new FriendManagementData(userId));
+        this.userId = createUserId();
+        this.profile = null;// empty Profile
+        this.status = false;
+    }
+    // to make clone
+    private User(User user)
+    {
+        this.email = user.email;
+        this.username = user.username;
+        this.dateOfBirth = (Date) user.dateOfBirth.clone();
+        this.userId = user.userId;
+        this.profile = user.profile.clone();
+        this.status = user.status;
     }
 
 
@@ -29,7 +38,7 @@ public class User {
         this.profile = profile;
     }
 
-    private String createUserId() {
+    private static String createUserId() {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         int length = 9;
         StringBuilder randomString = new StringBuilder(length);
@@ -52,4 +61,10 @@ public class User {
     public String getEmail() {
         return this.email;
     }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return new User(this);
+    }
 }
+

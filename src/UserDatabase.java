@@ -35,7 +35,7 @@ public class UserDatabase {
     }
 
 
-    public User findUserUsingUsername(String userName){
+    public User getUserUsingUsername(String userName){
 
         ArrayList<User> users = readJsonFile();
         for (User user : users) {
