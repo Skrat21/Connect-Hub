@@ -1,6 +1,3 @@
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -26,10 +23,11 @@ public class User {
         blockedList = new ArrayList<>();
     }
 
+
     public Profile getProfile(){
         return this.profile;
     }
-
+  
     public void addProfile (Profile profile){
         this.profile = profile;
     }
@@ -54,5 +52,7 @@ public class User {
         return this.username;
     }
 
-
+    public String getEmail() {
+        return this.email;
+    }
 }
