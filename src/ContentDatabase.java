@@ -23,6 +23,17 @@ public class ContentDatabase {
         return null;
     }
 
+    public ArrayList<Content> getUserPosts(String userId){
+        ArrayList<Content> content = readJsonFile();
+        ArrayList<Content> userPosts = new ArrayList<>();
+        for (Content contents : content) {
+            if (contents.getAuthorId().equals(userId)) {
+                userPosts.add(contents);
+            }
+        }
+        return userPosts;
+    }
+
     public ArrayList<Content> readJsonFile(){
         try (Reader reader = new FileReader("Content.json")) {
             Type listType = new TypeToken<ArrayList<Content>>() {}.getType();
@@ -57,5 +68,6 @@ public class ContentDatabase {
     private ContentDatabase() {
 
     }
+
 
 }
