@@ -9,9 +9,7 @@ public class User {
     private Date dateOfBirth;
     private Boolean status;
     private Profile profile;
-    private ArrayList<User> friendList;
-    private ArrayList<User> blockedList;
-
+    private final FriendManagementDataBase friendManagementDataBase = FriendManagementDataBase.getInstance();
 
     public User(String email, String username, Date dateOfBirth) {
         this.email = email;
@@ -19,20 +17,19 @@ public class User {
         this.userId = createUserId();
         this.dateOfBirth = dateOfBirth;
         status = false;
-        friendList = new ArrayList<>();
-        blockedList = new ArrayList<>();
+        friendManagementDataBase.storeFriendshipData(new FriendManagementData(userId));
     }
 
 
-    public Profile getProfile(){
+    public Profile getProfile() {
         return this.profile;
     }
-  
-    public void addProfile (Profile profile){
+
+    public void addProfile(Profile profile) {
         this.profile = profile;
     }
 
-    private String createUserId(){
+    private String createUserId() {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         int length = 9;
         StringBuilder randomString = new StringBuilder(length);
