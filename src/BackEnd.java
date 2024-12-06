@@ -4,7 +4,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 public class BackEnd {
-    public Boolean checkEmail(String email) {
+    private static final UserDatabase userDatabase = UserDatabase.getInstance();
+    public static BackEnd backEndInstance;
+    public  Boolean checkEmail(String email) {
         return !userCredentials.findUser(email);
     }
 
@@ -20,5 +22,19 @@ public class BackEnd {
 
     public Boolean validateUser(String email, String password) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         return userCredentials.checkUserCredentials(email, password);
+    }
+
+
+    // singleton design pattern synchronized to be thread safe
+    public static synchronized BackEnd getInstance()
+    {
+        if(backEndInstance==null)
+        {
+            backEndInstance = new BackEnd();
+        }
+        return backEndInstance;
+    }
+    private BackEnd()
+    {
     }
 }
