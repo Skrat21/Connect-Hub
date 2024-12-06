@@ -18,7 +18,24 @@ public class BackEnd {
         userDatabase.storeUser(user);
     }
 
-    public Boolean validateUser(String email, String password) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        return userCredentials.checkUserCredentials(email, password);
+    public User validateUser(String email, String password) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        if (userCredentials.checkUserCredentials(email, password)){
+            return userDatabase.getUserUsingEmail(email);
+        }
+        return null;
+    }
+
+    public User getUser(String userId){
+        return userDatabase.getUser(userId);
+    }
+
+
+    public void createContent(String userId, String[] imagePaths, String contentType, String description) throws IOException {
+        if (contentType.equals("Story")){
+            Content content = new Story(userId, imagePaths, description);
+        }
+        else{
+            Content content = new Post(userId, imagePaths, description);
+        }
     }
 }

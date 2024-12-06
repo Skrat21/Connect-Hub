@@ -22,6 +22,16 @@ public class userDatabase {
         return null;
     }
 
+    public static User getUserUsingEmail(String email) {
+        ArrayList<User> users = readJsonFile();
+        for (User user : users) {
+            if (user.getEmail().equals(email)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     public static Boolean findUserName(String userName){
         ArrayList<User> users = readJsonFile();
         for (User user : users) {

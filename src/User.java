@@ -1,6 +1,3 @@
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -24,12 +21,6 @@ public class User {
         status = false;
         friendList = new ArrayList<>();
         blockedList = new ArrayList<>();
-    }
-
-    public JsonObject getProfile(){
-        Gson gson = new Gson();
-        String json = gson.toJson(profile);
-        return gson.fromJson(json, JsonObject.class);
     }
 
     public void addProfile (Profile profile){
@@ -56,5 +47,7 @@ public class User {
         return this.username;
     }
 
-
+    public String getEmail() {
+        return this.email;
+    }
 }
