@@ -7,19 +7,20 @@ public class BackEnd {
     private static BackEnd backEndInstance = BackEnd.getInstance();
     private static final UserDatabase userDatabase = UserDatabase.getInstance();
     private static final UserCredentials userCredentials = UserCredentials.getUserCredentialsInstance();
-
+    private static final FriendManagementDataBase friendManagementDatabase = FriendManagementDataBase.getInstance();
     public  Boolean checkEmail(String email) {
         return !userCredentials.findUser(email);
     }
 
     public Boolean checkUsername(String username) {
-        return userDatabase.findUserName(username)!=null;
+        return userDatabase.getUser(username)!=null;
     }
 
     public void createUser(String email, String password, String userName, Date dateOfBirth) throws IOException, NoSuchAlgorithmException {
         User user = new User(email, userName, dateOfBirth);
         userCredentials.addUserCredentials(email, password);
         userDatabase.storeUser(user);
+        friendManagementDatabase.storeFriendshipData(new FriendManagementData());
     }
 
     public User validateUser(String email, String password) throws UnsupportedEncodingException, NoSuchAlgorithmException {
