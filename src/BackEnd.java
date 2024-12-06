@@ -4,8 +4,10 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 public class BackEnd {
+    private static BackEnd backEndInstance = BackEnd.getInstance();
     private static final UserDatabase userDatabase = UserDatabase.getInstance();
-    public static BackEnd backEndInstance;
+    private static final UserCredentials userCredentials = UserCredentials.getUserCredentialsInstance();
+
     public  Boolean checkEmail(String email) {
         return !userCredentials.findUser(email);
     }
