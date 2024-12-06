@@ -11,8 +11,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserCredentials {
-    private static UserCredentials userCredentialsInstance = null;
+public class userCredentials {
+    private static userCredentials userCredentialsInstance = null;
 
     public void addUserCredentials(String email, String password) throws IOException, NoSuchAlgorithmException {
         password = PasswordHashing.hashPassword(password);
@@ -55,14 +55,14 @@ public class UserCredentials {
         return credentials.containsKey(email);
     }
 
-    public synchronized static UserCredentials getUserCredentialsInstance() {
+    public synchronized static userCredentials getUserCredentialsInstance() {
         if (userCredentialsInstance == null) {
-            userCredentialsInstance = new UserCredentials();
+            userCredentialsInstance = new userCredentials();
         }
         return userCredentialsInstance;
     }
 
-    private UserCredentials() {
+    private userCredentials() {
     }
 
 }
