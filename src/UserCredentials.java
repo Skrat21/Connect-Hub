@@ -11,9 +11,10 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class userCredentials {
+public class UserCredentials {
+    private static UserCredentials userCredentialsInstance = null;
 
-    public static void addUserCredentials(String email, String password) throws IOException, NoSuchAlgorithmException {
+    public void addUserCredentials(String email, String password) throws IOException, NoSuchAlgorithmException {
         password = PasswordHashing.hashPassword(password);
 
         Map<String, String> credentialsMap = readJsonFile();
@@ -26,22 +27,22 @@ public class userCredentials {
     }
 
 
-    public static Boolean checkUserCredentials(String email, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    public Boolean checkUserCredentials(String email, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         Map<String, String> credentials = readJsonFile();
         if (credentials.containsKey(email)) {
             String pass = credentials.get(email);
             String salt = pass.substring(pass.length() - 24);
             password = PasswordHashing.hashPassword(password, salt);
             return credentials.get(email).equals(password);
-        }
-        else return false;
+        } else return false;
     }
 
-    private static Map<String, String> readJsonFile() {
+    private Map<String, String> readJsonFile() {
         Map<String, String> credentialsMap = new HashMap<>();
         try (FileReader reader = new FileReader("Credentials.json")) {
             Gson gson = new Gson();
-            Type mapType = new TypeToken<Map<String, String>>() {}.getType();
+            Type mapType = new TypeToken<Map<String, String>>() {
+            }.getType();
             credentialsMap = gson.fromJson(reader, mapType);
         } catch (IOException e) {
             System.out.println("Error reading JSON file: " + e.getMessage());
@@ -49,8 +50,19 @@ public class userCredentials {
         return credentialsMap;
     }
 
-    public static Boolean findUser(String email) {
+    public Boolean findUser(String email) {
         Map<String, String> credentials = readJsonFile();
         return credentials.containsKey(email);
     }
+
+    public synchronized static UserCredentials getUserCredentialsInstance() {
+        if (userCredentialsInstance == null) {
+            userCredentialsInstance = new UserCredentials();
+        }
+        return userCredentialsInstance;
+    }
+
+    private UserCredentials() {
+    }
+
 }
