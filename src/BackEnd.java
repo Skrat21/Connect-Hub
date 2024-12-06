@@ -13,7 +13,7 @@ public class BackEnd {
     }
 
     public Boolean checkUsername(String username) {
-        return !userDatabase.findUserName(username);
+        return userDatabase.findUserName(username)!=null;
     }
 
     public void createUser(String email, String password, String userName, Date dateOfBirth) throws IOException, NoSuchAlgorithmException {

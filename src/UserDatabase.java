@@ -35,15 +35,15 @@ public class UserDatabase {
     }
 
 
-    public Boolean findUserName(String userName){
+    public User findUserUsingUsername(String userName){
 
         ArrayList<User> users = readJsonFile();
         for (User user : users) {
             if (user.getUsername().equals(userName)) {
-                return true;
+                return user;
             }
         }
-        return false;
+        return null;
     }
 
     public ArrayList<User> readJsonFile(){
