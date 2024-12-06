@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="957e5a31-e32e-4c21-8c0a-f1230a1a5c9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/google_code_gson.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-Hub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-Hub.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Credentials.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/BackEnd.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/Content.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/EmailFormatChecker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/LoginScreen$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/LoginScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/MainScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/NewsfeedPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/PasswordHashing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/Post.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/Profile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/ProfileFrontEnd.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/ProfileLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/SignUpScreen$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/SignUpScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/Story.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/UserLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/userCredentials$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/userCredentials.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/userDatabase$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Connect-Hub/userDatabase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainScreen.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainScreen.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2prI120vhGGwoapG2K2SpL7owRn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "git-widget-placeholder": "fixingfrontend",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="957e5a31-e32e-4c21-8c0a-f1230a1a5c9f" name="Changes" comment="" />
+      <created>1733517550115</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733517550115</updated>
+    </task>
+    <servers />
+  </component>
+</project>

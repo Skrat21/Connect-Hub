@@ -1,31 +1,30 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class MainScreen {
+public class MainScreen extends JFrame {
     private JPanel panel1;
     private JButton postButton;
     private JTabbedPane tabbedPane1;
     private JButton showSuggestedFriendsButton;
     private JLabel coverPhoto;
     private JLabel userPhoto;
-    private JPanel friendsList;
-    private JTextField addFriendTextField;
     private JPanel contentPanel;
-    private JPanel ContentPage;
+    private JPanel friendsContentPage;
     private JTextPane textPane1;
     private JLabel bioTextPane;
     private JButton editBioButton;
     private JButton changeProfilePictureButton;
     private JButton changeCoverPhotoButton;
     private JButton changePasswordButton;
+    private JButton addFriendButton;
+    private JButton showFriendListButton;
+    private JButton showBlockedListButton;
+    private JButton showPendingInvitesButton;
+    private JButton showFriendRequestsButton;
 
     public MainScreen() {
-        showSuggestedFriendsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
+        setVisible(true);
+        setContentPane(panel1);
+        contentPanel.add(new ContentPanel());//from backend list of content
+        friendsContentPage.add(new ())
     }
 }
