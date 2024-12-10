@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ContentDatabase {
     private static ContentDatabase contentDatabaseInstance = null;
-    public void storeUser(Content content) {
+    public void storeContent(Content content) {
         ArrayList<Content> contents = readJsonFile();
         contents.add(content);
         writeJsonFile(contents);
