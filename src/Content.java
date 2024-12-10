@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Random;
 
@@ -8,12 +9,11 @@ public abstract class Content {
     protected final LocalDateTime timestamp;
     protected  String content;
 
-    public Content(String authorId, String[] imgPaths,String content) throws IOException {
+    public Content(String authorId, String[] imgPaths, LocalDateTime time, String description) throws IOException {
         this.contentId = createContentId();
         this.authorId = authorId;
-        this.timestamp = LocalDateTime.now();
-        this.content = content;
-        ImageDatabase.storeContent(imgPaths, this.contentId);
+        this.timestamp = time;
+        this.content = description;
     }
 
     public String createContentId(){

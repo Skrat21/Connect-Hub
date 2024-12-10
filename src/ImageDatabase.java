@@ -126,7 +126,7 @@ public class ImageDatabase {
     }
 
 
-    public static ImageDatabase getInstance() {
+    public synchronized  static ImageDatabase getInstance() {
         if (contentDatabaseInstance == null) {
             contentDatabaseInstance = new ImageDatabase();
         }
