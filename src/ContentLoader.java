@@ -25,6 +25,7 @@ public class ContentLoader extends JPanel {
         User author = backEnd.getUser(content.getAuthorId());
         usernameLabel.setText(author.getUsername());
         Icon profilePicture = (Icon) ImageResizer.resizeImage(author.getProfile().getProfilePhoto(), 50, 50);
+
         profilePictureLabel.setIcon(profilePicture);
 //        for(String imagePaths: content.getImagePath())
 //        {

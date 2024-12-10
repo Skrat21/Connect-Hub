@@ -6,9 +6,7 @@ public class FriendManagement {
     private static final UserDatabase userDatabase = UserDatabase.getInstance();
 
     private FriendManagement() {
-
     }
-
 
     public ArrayList<String> getAllFriends(String userId) {
         return new ArrayList<>(friendManagementDataBase.getFriendshipData(userId).getFriendsListIds());

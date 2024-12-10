@@ -13,11 +13,14 @@ public class LoginScreen extends JFrame {
     private JButton loginButton;
 
     private JPasswordField passwordField;
+    private JButton signUpButton;
 
     private final BackEnd backEnd = BackEnd.getInstance();
 
     public LoginScreen () {
-        setSize(200,200);
+        setTitle("Login screen");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(500,300);
         setVisible(true);
         setContentPane(panel1);
         loginButton.addActionListener(new ActionListener() {
@@ -32,7 +35,8 @@ public class LoginScreen extends JFrame {
                         User user = backEnd.validateUser(email,password);
                         if(user!=null)
                         {
-                            JOptionPane.showMessageDialog(panel1,"Successs","cool",JOptionPane.INFORMATION_MESSAGE);
+                            setVisible(false);
+                            new MainScreen(user);
                         }
                         else
                         {
@@ -54,6 +58,13 @@ public class LoginScreen extends JFrame {
 
                 */
                 }
+            }
+        });
+        signUpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                new SignUpScreen();
             }
         });
     }

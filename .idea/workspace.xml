@@ -5,7 +5,103 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="957e5a31-e32e-4c21-8c0a-f1230a1a5c9f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Lab 9.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/Lab9UML.drawio.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/Untitled Diagram.drawio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/AddPost.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/AddPost.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/BackEnd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/Computer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/Content.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/ContentDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/ContentLoader.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/ContentLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/ContentPanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/ContentPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/EmailFormatChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/FriendManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/FriendManagementData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/FriendManagementDataBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/ImageDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/ImageResizer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/LoginScreen.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/LoginScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/MainScreen.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/MainScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/NewsfeedPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/PasswordHashing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/Post.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/Profile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/SignUpScreen.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/SignUpScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/Story.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/UserCredentials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lab 9/src/UserDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/AddPost$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/AddPost$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/AddPost.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/BackEnd.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/Computer$ComputerBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/Computer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/Content.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/ContentDatabase$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/ContentDatabase.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/ContentLoader.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/ContentPanel$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/ContentPanel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/EmailFormatChecker.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/FriendManagementData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/ImageDatabase.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/ImageResizer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/LoginScreen$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/LoginScreen$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/LoginScreen.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/MainScreen.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/PasswordHashing.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/Post.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/Profile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/SignUpScreen$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/SignUpScreen$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/SignUpScreen.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/Story.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/UserCredentials$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/UserCredentials.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/UserDatabase$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/UserDatabase.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/AbstractLayout.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/DimensionInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/GridLayoutManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/HorizontalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/LayoutState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/Spacer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/SupportCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/Util.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Connect-Hub/com/intellij/uiDesigner/core/VerticalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-Hub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-Hub.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddPost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ContentLoader.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContentLoader.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ContentLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContentLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ContentPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContentPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ContentPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContentPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FriendManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FriendManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FriendManagementDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FriendManagementDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginScreen.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginScreen.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainScreen.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainScreen.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SignUpScreen.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SignUpScreen.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SignUpScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SignUpScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserCredentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserCredentials.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +129,37 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.AddPost.executor": "Run",
+    "Application.LoginScreen.executor": "Run",
+    "Application.SignUpScreen.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "false",
     "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="SignUpScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SignUpScreen" />
+      <module name="Connect-Hub" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SignUpScreen" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
