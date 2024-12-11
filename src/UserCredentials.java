@@ -17,11 +17,20 @@ public class UserCredentials {
         password = PasswordHashing.hashPassword(password);
 
         Map<String, String> credentialsMap = readJsonFile();
-        credentialsMap.put(email, password);
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try (FileWriter writer = new FileWriter("Credentials.json")) {
-            gson.toJson(credentialsMap, writer);
+        if (credentialsMap != null) {
+            credentialsMap.put(email, password);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            try (FileWriter writer = new FileWriter("Credentials.json")) {
+                gson.toJson(credentialsMap, writer);
+            }
+        }
+        else{
+            Map<String, String> credentialsMap2 = new HashMap<>() ;
+            credentialsMap2.put(email, password);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            try (FileWriter writer = new FileWriter("Credentials.json")) {
+                gson.toJson(credentialsMap2, writer);
+            }
         }
     }
 
@@ -50,8 +59,11 @@ public class UserCredentials {
     }
 
     public Boolean findUser(String email) {
-        Map<String, String> credentials = readJsonFile();
-        return credentials.containsKey(email);
+        if (readJsonFile() != null) {
+            Map<String, String> credentials = readJsonFile();
+            return credentials.containsKey(email);
+        }
+        return false;
     }
 
     public synchronized static UserCredentials getUserCredentialsInstance() {
