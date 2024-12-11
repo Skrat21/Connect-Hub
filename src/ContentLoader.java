@@ -9,8 +9,11 @@ public class ContentLoader extends JPanel {
     private JLabel profilePictureLabel;
     private JLabel timeLabel;
     private JLabel typeOfPostLabel;
+    private static final UserDatabase userDatabase = UserDatabase.getInstance();
 
     public ContentLoader(Content content) throws IOException {
+        String authorId =content.getAuthorId();
+        User author = userDatabase.getUser(authorId);
         BackEnd backEnd = BackEnd.getInstance();
         contentTextArea.setText(content.getContent());
         timeLabel.setText(content.getTimestamp().toString());
@@ -22,7 +25,6 @@ public class ContentLoader extends JPanel {
             typeOfPost = "Story";
         }
         typeOfPostLabel.setText(typeOfPost);
-        User author = backEnd.getUser(content.getAuthorId());
         usernameLabel.setText(author.getUsername());
         Icon profilePicture = (Icon) ImageResizer.resizeImage(author.getProfile().getProfilePhoto(), 50, 50);
         profilePictureLabel.setIcon(profilePicture);
