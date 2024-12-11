@@ -15,7 +15,7 @@ public class AddPost extends JFrame {
     private JPanel panel1;
     private String photoPath;
     private ArrayList<String> photoPaths;
-
+    private BackEnd backEnd = BackEnd.getInstance();
 
     public AddPost(User currentUser) {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -79,7 +79,7 @@ public class AddPost extends JFrame {
     }
 
     public static void main(String[] args) {
-        User user = new UserBuilder("example@example.com", "john_doe", new Date());
+        User user = new User("example@example.com", "john_doe", new Date());
         AddPost addPost = new AddPost(user);
     }
 
