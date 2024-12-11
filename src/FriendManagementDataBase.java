@@ -6,26 +6,26 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class FriendManagementDataBase {
-    private static  FriendManagementDataBase friendManagementDataBase=null;
+    private static FriendManagementDataBase friendManagementDataBase=null;
 
     private FriendManagementDataBase(){
 
     }
 
     public FriendManagementData getFriendshipData(String userId) {
-        ArrayList<FriendManagementData> friendManagementDataBase = readJsonFile();
-        for (FriendManagementData data : friendManagementDataBase) {
-            if (data.getUserId().equals(userId)) {
+        ArrayList<FriendManagementData> FriendManagementDataBase = readJsonFile();
+        for (FriendManagementData data : FriendManagementDataBase) {
+//            if (data.().equals(userId)) {
                 return data;
             }
-        }
+
         return null;
     }
 
     public void storeFriendshipData(FriendManagementData data) {
-        ArrayList<FriendManagementData> friendManagementDataBase = readJsonFile();
-        friendManagementDataBase.add(data);
-        writeJsonFile(friendManagementDataBase);
+        ArrayList<FriendManagementData> FriendManagementDataBase = readJsonFile();
+        FriendManagementDataBase.add(data);
+        writeJsonFile(FriendManagementDataBase);
     }
     public ArrayList<FriendManagementData> readJsonFile(){
         try (Reader reader = new FileReader("FriendManagementData.json")) {
@@ -51,7 +51,7 @@ public class FriendManagementDataBase {
     }
     public static FriendManagementDataBase getInstance(){
         if(friendManagementDataBase==null){
-            friendManagementDataBase=new FriendManagementDataBase();
+           friendManagementDataBase=new FriendManagementDataBase();
         }
     return friendManagementDataBase;
     }
