@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -15,7 +16,7 @@ public class LoginScreen extends JFrame {
     private JPasswordField passwordField;
     private JButton signUpButton;
 
-    private final BackEnd backEnd = BackEnd.getInstance();
+    private final static UserManagement userManagement = UserManagement.getInstance();
 
     public LoginScreen () {
         setTitle("Login screen");
@@ -32,7 +33,7 @@ public class LoginScreen extends JFrame {
                     JOptionPane.showMessageDialog(panel1, "Incomplete ", "Error", JOptionPane.ERROR_MESSAGE);
                 } else {
                     try {
-                        User user = backEnd.validateUser(email,password);
+                        User user = userManagement.validateUser(email,password);
                         if(user!=null)
                         {
                             setVisible(false);
@@ -44,7 +45,7 @@ public class LoginScreen extends JFrame {
                         }
                     } catch (UnsupportedEncodingException ex) {
                         throw new RuntimeException(ex);
-                    } catch (NoSuchAlgorithmException ex) {
+                    } catch (NoSuchAlgorithmException | IOException ex) {
                         throw new RuntimeException(ex);
                     }
 

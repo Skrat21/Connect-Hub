@@ -53,7 +53,15 @@ public class User {
         return this.email;
     }
 
-//    @Override
+    public boolean getStatus()
+    {
+        return status;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+    //    @Override
 //    protected Object clone() throws CloneNotSupportedException {
 //        return new User(this);
 //    }
