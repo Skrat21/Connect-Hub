@@ -61,6 +61,7 @@ public class FriendManagement {
             return false; // receiver blocked sender acts as if receiver doesn't exist
         }
         dataOfSender.getPendingInvitesListIds().add(receiver.getUserId());// adds to pending invite
+
         dataOfReceiver.getRequestListIds().add(receiverId);
         friendManagementDataBase.modifyFriendshipData(dataOfSender);
         friendManagementDataBase.modifyFriendshipData(dataOfReceiver);
