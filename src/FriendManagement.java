@@ -38,6 +38,7 @@ public class FriendManagement {
         }
 
         dataOfSender.getPendingInvitesListIds().add(receiver.getUserId());// adds to pending invite
+
         return true;
     }
 
