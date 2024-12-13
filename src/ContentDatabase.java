@@ -1,8 +1,11 @@
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ContentDatabase {
@@ -78,38 +81,58 @@ public class ContentDatabase {
     }
 
     public ArrayList<Post> readJsonFilePosts() {
-        try (Reader reader = new FileReader("Posts.json")) {
-            Type listType = new TypeToken<ArrayList<Content>>() {
-            }.getType();
-            Gson gson = new Gson();
-            ArrayList<Post> post = gson.fromJson(reader, listType);
-            return (post != null) ? post : new ArrayList<>();
+        File file = new File("Posts.json");
+        if (file.length() == 0) {
+            // File exists but is empty
+            return new ArrayList<>();
+        }
+        try (Reader reader = new FileReader(file)) {
+            Type listType = new TypeToken<ArrayList<Post>>() {}.getType();
+            Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).create();
+            ArrayList<Post> posts = gson.fromJson(reader, listType);
+            return (posts != null) ? posts : new ArrayList<>();
         } catch (FileNotFoundException e) {
+            // File does not exist
             return new ArrayList<>();
         } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        } catch (JsonSyntaxException e) {
+            // Invalid JSON content
             e.printStackTrace();
             return new ArrayList<>();
         }
     }
 
+
     public ArrayList<Story> readJsonFileStories() {
-        try (Reader reader = new FileReader("Stories.json")) {
-            Type listType = new TypeToken<ArrayList<Content>>() {
-            }.getType();
-            Gson gson = new Gson();
-            ArrayList<Story> story = gson.fromJson(reader, listType);
-            return (story != null) ? story : new ArrayList<>();
+        File file = new File("Stories.json");
+        if (file.length() == 0) {
+            // File exists but is empty
+            return new ArrayList<>();
+        }
+        try (Reader reader = new FileReader(file)) {
+            Type listType = new TypeToken<ArrayList<Story>>() {}.getType();
+            Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).create();
+            ArrayList<Story> stories = gson.fromJson(reader, listType);
+            return (stories != null) ? stories : new ArrayList<>();
         } catch (FileNotFoundException e) {
+            // File does not exist
             return new ArrayList<>();
         } catch (IOException e) {
             e.printStackTrace();
             return new ArrayList<>();
+        } catch (JsonSyntaxException e) {
+            // Invalid JSON content
+            e.printStackTrace();
+            return new ArrayList<>();
         }
     }
+
 
     private void writeJsonFilePosts(ArrayList<Post> posts) {
         try (Writer writer = new FileWriter("Posts.json")) {
-            Gson gson = new Gson();
+            Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).create();
             gson.toJson(posts, writer);
         } catch (IOException e) {
             e.printStackTrace();
@@ -118,7 +141,7 @@ public class ContentDatabase {
 
     private void writeJsonFileStories(ArrayList<Story> stories) {
         try (Writer writer = new FileWriter("Stories.json")) {
-            Gson gson = new Gson();
+            Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).create();
             gson.toJson(stories, writer);
         } catch (IOException e) {
             e.printStackTrace();
