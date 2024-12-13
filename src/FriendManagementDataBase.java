@@ -19,6 +19,7 @@ public class FriendManagementDataBase {
                 return data;
             }
         }
+
         return null;
     }
 
@@ -55,21 +56,23 @@ public class FriendManagementDataBase {
     }
 
     public ArrayList<FriendManagementData> readJsonFile(){
-        try (Reader reader = new FileReader("FriendManagementData.json")) {
+        try (Reader reader = new FileReader("D:\\Programming 2\\Lab9\\ FriendManagementData.json")) {
             Type listType = new TypeToken<ArrayList<FriendManagementData>>() {}.getType();
             Gson gson = new Gson();
             ArrayList<FriendManagementData> FriendManagementDataBase = gson.fromJson(reader, listType);
             return (FriendManagementDataBase != null) ? FriendManagementDataBase : new ArrayList<>();
         } catch (FileNotFoundException e) {
+            System.out.println("failllll");
             return new ArrayList<>();
         } catch (IOException e) {
+            System.out.println("fail");
             e.printStackTrace();
             return new ArrayList<>();
         }
     }
 
     private void writeJsonFile(ArrayList< FriendManagementData>  FriendManagementDataBase ) {
-        try (Writer writer = new FileWriter(" FriendManagementData.json")) {
+        try (Writer writer = new FileWriter("FriendManagementData.json")) {
             Gson gson = new Gson();
             gson.toJson(FriendManagementDataBase, writer);
         } catch (IOException e) {

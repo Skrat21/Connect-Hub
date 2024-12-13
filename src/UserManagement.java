@@ -10,12 +10,11 @@ public class UserManagement {
     private final static ImageDatabase imageDatabase = ImageDatabase.getInstance();
     private final static UserCredentials userCredentials = UserCredentials.getUserCredentialsInstance();
     private final static FriendManagementDataBase friendManagementDatabase = FriendManagementDataBase.getInstance();
-    private final static Profile emptyProfile = new Profile("empty.jpeg", "empty.jpeg", "Please set your bio");
 
     // Add a new user to the list
     public void addUser(String email,String password, String username, Date dateOfBirth) throws IOException, NoSuchAlgorithmException {
         String userId = createUserId();
-        Profile emptyProfile = new Profile("empty.jpeg", "empty.jpeg", "Please set your bio");//for now
+        Profile emptyProfile = new Profile("empty.jpeg", "emptyCover.png", "Please set your bio");//for now
         User newUser = new User(userId, email, username, dateOfBirth, false, emptyProfile);
         userDatabase.storeUser(newUser);
         friendManagementDatabase.storeFriendshipData(new FriendManagementData(newUser.getUserId()));

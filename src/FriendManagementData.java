@@ -7,13 +7,15 @@ public class FriendManagementData {
     private ArrayList<String> requestListIds;
     private ArrayList<String> pendingInvitesListIds;
 
-    public FriendManagementData(String userId) {
-        this.userId=userId;
-        ArrayList<String> friendsListIds = new ArrayList<>();
-        ArrayList<String> blockedListIds = new ArrayList<>();
-        ArrayList<String> requestListIds = new ArrayList<>();
-        ArrayList<String> pendingInvitesListIds = new ArrayList<>();
+    public FriendManagementData(String userid) {
+        this.userId = userid;
+        this.friendsListIds = new ArrayList<>();
+        this.blockedListIds = new ArrayList<>();
+        this.requestListIds = new ArrayList<>();
+        this.pendingInvitesListIds = new ArrayList<>();
     }
+
+
 
     public ArrayList<String> getBlockedListIds() {
         return blockedListIds;
@@ -33,6 +35,6 @@ public class FriendManagementData {
 
     public String getUserId()
     {
-        return getUserId();
+        return userId;
     }
 }

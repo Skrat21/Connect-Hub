@@ -22,6 +22,7 @@ public class LoginScreen extends JFrame {
         setTitle("Login screen");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(500,300);
+        setLocationRelativeTo(null);
         setVisible(true);
         setContentPane(panel1);
         loginButton.addActionListener(new ActionListener() {

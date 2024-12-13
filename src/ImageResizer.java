@@ -23,15 +23,18 @@ public class ImageResizer {
         return resizedImage;
     }
     public static BufferedImage loadImage(String imagePath) throws IOException {
-        // Read the original image from the given file path
         File inputFile = new File(imagePath);
-        BufferedImage originalImage = ImageIO.read(inputFile);
 
-        // Check if the image was loaded successfully
-        if (originalImage == null) {
-            throw new IOException("Failed to load image from the given path.");
+        // Check if the file exists
+        if (!inputFile.exists()) {
+            throw new IOException("File not found: " + imagePath);
         }
 
+        // Attempt to read the image
+        BufferedImage originalImage = ImageIO.read(inputFile);
+        if (originalImage == null) {
+            throw new IOException("Unsupported image format or corrupted file: " + imagePath);
+        }
         // Return the original image without resizing
         return originalImage;
     }

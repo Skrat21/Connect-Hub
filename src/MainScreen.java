@@ -35,7 +35,8 @@ public class MainScreen extends JFrame {
     private final User  loggedinUser;
     public MainScreen(User user) throws IOException {
         setTitle("Main Screen");
-        setSize(1000,1000);
+        setSize(1000,800);
+        setLocationRelativeTo(null);
         setVisible(true);
         setContentPane(panel1);
         loggedinUser = user;
@@ -163,8 +164,10 @@ public class MainScreen extends JFrame {
     }
     private void refreshProfile() throws IOException {
         Profile loggedinProfile = loggedinUser.getProfile();
-        coverPhoto.setIcon(new ImageIcon(ImageResizer.loadImage(loggedinProfile.getCoverPhoto())));
-        userPhoto.setIcon(new ImageIcon(ImageResizer.loadImage(loggedinProfile.getCoverPhoto())));
+        coverPhoto.setIcon(new ImageIcon(ImageResizer.resizeImage(
+                loggedinProfile.getCoverPhoto(), 800, 400)));
+        userPhoto.setIcon(new ImageIcon(ImageResizer.resizeImage(
+                loggedinProfile.getProfilePhoto(), 150, 150)));
         bioTextPane.setText(loggedinProfile.getBio());
         contentPanel.removeAll();
         ArrayList<Content> userPosts = contentDatabase.getUserPosts(loggedinUser.getUserId());
