@@ -26,7 +26,12 @@ public class ContentManagement {
     }
 
     public ArrayList<Content> getMyContent(String userId) {
-        return cdb.getUserPosts(userId);
+        ArrayList<Content> contents = new ArrayList<>();
+        ArrayList<Story> stories = cdb.getUserStories(userId);
+        ArrayList<Post> posts = cdb.getUserPosts(userId);
+        contents.addAll(stories);
+        contents.addAll(posts);
+        return contents;
     }
 
     public String[] getContentLinks(String contentId)

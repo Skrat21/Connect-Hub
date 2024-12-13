@@ -54,5 +54,15 @@ public class GroupDatabase {
         }
         return null;
     }
+
+    public static Group getGroupFromName(String groupName) {
+        ArrayList<Group> groups = readJsonFile();
+        for (Group group : groups) {
+            if (group.getGroupName().equals(groupName)) {
+                return group;
+            }
+        }
+        return null;
+    }
 }
 
