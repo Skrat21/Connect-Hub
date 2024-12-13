@@ -18,6 +18,7 @@ public class SignUpScreen extends JFrame {
     public SignUpScreen() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(300,300);
+        setLocationRelativeTo(null);
         setVisible(true);
         setContentPane(panel1);
         signUpButton.addActionListener(new ActionListener() {
@@ -35,6 +36,7 @@ public class SignUpScreen extends JFrame {
                             try {
                                 userManagement.addUser(email,password,username, new Date());
                                 User loggedInUser=userManagement.validateUser(email,password);
+                                setVisible(false);
                                 new MainScreen(loggedInUser);
                             } catch (IOException ex) {
                                 throw new RuntimeException(ex);
