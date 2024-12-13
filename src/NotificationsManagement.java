@@ -21,6 +21,7 @@ public class NotificationsManagement {
     public Notifications addedPost(String authorId) {
         String message = udb.getUserUsingUsername(authorId).getUsername() + " added post";
         Notifications addedPost = new Notifications(message, authorId, LocalDateTime.now());
+
         ndb.storeNotifications(addedPost);
         return addedPost;
     }
@@ -40,4 +41,5 @@ public class NotificationsManagement {
             ndb.storeNotifications(addedPost);
         }
     }
+
 }

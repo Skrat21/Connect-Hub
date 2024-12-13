@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Notifications {
    private String message;
-    private String usreId;
+    private String usreId;//reciever
     private LocalDateTime date;
     private String notificationId;
     public Notifications(String message, String usreId, LocalDateTime date) {
@@ -20,7 +20,7 @@ public class Notifications {
     public LocalDateTime getDate() {
         return date;
     }
-    public String getNotficationId() {
+    public String getNotificationId() {
         return notificationId;
     }
     public String createNotificationId(){
@@ -32,6 +32,6 @@ public class Notifications {
             int index = random.nextInt(characters.length());
             randomString.append(characters.charAt(index));
         }
-        return randomString.toString();
+        return randomString.toString();//
     }
 }
