@@ -4,7 +4,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.util.ArrayList;
-import java.util.Date;
 
 
 public class AddPost extends JFrame {
@@ -15,10 +14,12 @@ public class AddPost extends JFrame {
     private JPanel panel1;
     private String photoPath;
     private ArrayList<String> photoPaths;
-
+    private final static ContentManagement contentManagement = ContentManagement.getInstance();
 
     public AddPost(User currentUser) {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(300, 300);
+        setLocationRelativeTo(null);
         setContentPane(panel1);
         setVisible(true);
         this.photoPaths = new ArrayList<>();
@@ -61,7 +62,9 @@ public class AddPost extends JFrame {
                     } else {
                         typeOfContent = "Post";
                     }
-
+                    String[] arrayOfPhotoPaths = new String[photoPaths.size()];
+                    arrayOfPhotoPaths = photoPaths.toArray(arrayOfPhotoPaths);
+                    contentManagement.addContent(arrayOfPhotoPaths,currentUser.getUserId(),postContent,typeOfContent);
                     System.out.println("User ID: " + currentUser.getUserId());
                     System.out.println("Post content: " + postContent);
                     System.out.println("type of content:"+ typeOfContent);
@@ -78,9 +81,9 @@ public class AddPost extends JFrame {
         });
     }
 
-    public static void main(String[] args) {
-        User user = new UserBuilder("example@example.com", "john_doe", new Date());
-        AddPost addPost = new AddPost(user);
-    }
+//    public static void main(String[] args) {
+//        User user = new User("example@example.com", "john_doe", new Date());
+//        AddPost addPost = new AddPost(user);
+//    }
 
 }

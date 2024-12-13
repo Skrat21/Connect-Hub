@@ -10,24 +10,25 @@ public class User {
     private Profile profile;
 
 
-    public User(String email, String username, Date dateOfBirth) {
+    public User(String userId, String email, String username, Date dateOfBirth, Boolean status, Profile profile) {
+        this.userId = userId;
         this.email = email;
         this.username = username;
         this.dateOfBirth = dateOfBirth;
-        this.userId = createUserId();
-        this.profile = null;// empty Profile
-        this.status = false;
+        this.status = status;
+        this.profile = profile;
     }
+
     // to make clone
-    private User(User user)
-    {
-        this.email = user.email;
-        this.username = user.username;
-        this.dateOfBirth = (Date) user.dateOfBirth.clone();
-        this.userId = user.userId;
-        this.profile = user.profile.clone();
-        this.status = user.status;
-    }
+//    private User(User user)
+//    {
+//        this.email = user.email;
+//        this.username = user.username;
+//        this.dateOfBirth = (Date) user.dateOfBirth.clone();
+//        this.userId = user.userId;
+//        this.profile = user.profile.clone();
+//        this.status = user.status;
+//    }
 
 
     public Profile getProfile() {
@@ -38,17 +39,7 @@ public class User {
         this.profile = profile;
     }
 
-    private static String createUserId() {
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        int length = 9;
-        StringBuilder randomString = new StringBuilder(length);
-        Random random = new Random();
-        for (int i = 0; i < length; i++) {
-            int index = random.nextInt(characters.length());
-            randomString.append(characters.charAt(index));
-        }
-        return randomString.toString();
-    }
+
 
     public String getUserId() {
         return this.userId;
@@ -62,9 +53,17 @@ public class User {
         return this.email;
     }
 
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return new User(this);
+    public boolean getStatus()
+    {
+        return status;
     }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+    //    @Override
+//    protected Object clone() throws CloneNotSupportedException {
+//        return new User(this);
+//    }
 }
 

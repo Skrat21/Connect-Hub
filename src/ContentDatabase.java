@@ -1,8 +1,11 @@
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ContentDatabase {
@@ -37,7 +40,7 @@ public class ContentDatabase {
     public ArrayList<Content> readJsonFile(){
         try (Reader reader = new FileReader("Content.json")) {
             Type listType = new TypeToken<ArrayList<Content>>() {}.getType();
-            Gson gson = new Gson();
+            Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).create();
             ArrayList<Content> content = gson.fromJson(reader, listType);
             return (content != null) ? content : new ArrayList<>();
         } catch (FileNotFoundException e) {
@@ -50,7 +53,7 @@ public class ContentDatabase {
 
     private void writeJsonFile(ArrayList<Content> content) {
         try (Writer writer = new FileWriter("Content.json")) {
-            Gson gson = new Gson();
+            Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).create();
             gson.toJson(content, writer);
         } catch (IOException e) {
             e.printStackTrace();

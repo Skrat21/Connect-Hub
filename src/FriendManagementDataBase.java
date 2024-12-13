@@ -6,7 +6,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class FriendManagementDataBase {
-    private static  FriendManagementDataBase friendManagementDataBase=null;
+    private static  FriendManagementDataBase friendManagementDataBaseInstance=null;
 
     private FriendManagementDataBase(){
 
@@ -19,6 +19,7 @@ public class FriendManagementDataBase {
                 return data;
             }
         }
+
         return null;
     }
 
@@ -27,22 +28,51 @@ public class FriendManagementDataBase {
         friendManagementDataBase.add(data);
         writeJsonFile(friendManagementDataBase);
     }
+
+    public void modifyFriendshipData(FriendManagementData data)
+    {
+        removeFriendshipData(data);
+        storeFriendshipData(data);
+    }
+
+    public void removeFriendshipData(FriendManagementData Data)
+    {
+        String id = Data.getUserId();
+        FriendManagementData oldData = null;
+        ArrayList<FriendManagementData> friendManagementDatabase = readJsonFile();
+        for(FriendManagementData friendManagementData:friendManagementDatabase)
+        {
+            if(friendManagementData.getUserId().equals(id))
+            {
+                oldData = friendManagementData;
+                break;
+            }
+        }
+        if(oldData!=null)
+        {
+            friendManagementDatabase.remove(oldData);
+            writeJsonFile(friendManagementDatabase);
+        }
+    }
+
     public ArrayList<FriendManagementData> readJsonFile(){
-        try (Reader reader = new FileReader("FriendManagementData.json")) {
+        try (Reader reader = new FileReader("D:\\Programming 2\\Lab9\\ FriendManagementData.json")) {
             Type listType = new TypeToken<ArrayList<FriendManagementData>>() {}.getType();
             Gson gson = new Gson();
             ArrayList<FriendManagementData> FriendManagementDataBase = gson.fromJson(reader, listType);
             return (FriendManagementDataBase != null) ? FriendManagementDataBase : new ArrayList<>();
         } catch (FileNotFoundException e) {
+            System.out.println("failllll");
             return new ArrayList<>();
         } catch (IOException e) {
+            System.out.println("fail");
             e.printStackTrace();
             return new ArrayList<>();
         }
     }
 
     private void writeJsonFile(ArrayList< FriendManagementData>  FriendManagementDataBase ) {
-        try (Writer writer = new FileWriter(" FriendManagementData.json")) {
+        try (Writer writer = new FileWriter("FriendManagementData.json")) {
             Gson gson = new Gson();
             gson.toJson(FriendManagementDataBase, writer);
         } catch (IOException e) {
@@ -50,9 +80,9 @@ public class FriendManagementDataBase {
         }
     }
     public static FriendManagementDataBase getInstance(){
-        if(friendManagementDataBase==null){
-            friendManagementDataBase=new FriendManagementDataBase();
+        if(friendManagementDataBaseInstance==null){
+            friendManagementDataBaseInstance=new FriendManagementDataBase();
         }
-    return friendManagementDataBase;
+    return friendManagementDataBaseInstance;
     }
 }

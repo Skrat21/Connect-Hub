@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -13,11 +14,15 @@ public class LoginScreen extends JFrame {
     private JButton loginButton;
 
     private JPasswordField passwordField;
+    private JButton signUpButton;
 
-    private final BackEnd backEnd = BackEnd.getInstance();
+    private final static UserManagement userManagement = UserManagement.getInstance();
 
     public LoginScreen () {
-        setSize(200,200);
+        setTitle("Login screen");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(500,300);
+        setLocationRelativeTo(null);
         setVisible(true);
         setContentPane(panel1);
         loginButton.addActionListener(new ActionListener() {
@@ -29,10 +34,11 @@ public class LoginScreen extends JFrame {
                     JOptionPane.showMessageDialog(panel1, "Incomplete ", "Error", JOptionPane.ERROR_MESSAGE);
                 } else {
                     try {
-                        User user = backEnd.validateUser(email,password);
+                        User user = userManagement.validateUser(email,password);
                         if(user!=null)
                         {
-                            JOptionPane.showMessageDialog(panel1,"Successs","cool",JOptionPane.INFORMATION_MESSAGE);
+                            setVisible(false);
+                            new MainScreen(user);
                         }
                         else
                         {
@@ -40,7 +46,7 @@ public class LoginScreen extends JFrame {
                         }
                     } catch (UnsupportedEncodingException ex) {
                         throw new RuntimeException(ex);
-                    } catch (NoSuchAlgorithmException ex) {
+                    } catch (NoSuchAlgorithmException | IOException ex) {
                         throw new RuntimeException(ex);
                     }
 
@@ -54,6 +60,13 @@ public class LoginScreen extends JFrame {
 
                 */
                 }
+            }
+        });
+        signUpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                new SignUpScreen();
             }
         });
     }
