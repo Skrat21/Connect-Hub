@@ -8,6 +8,7 @@ public class GroupManagement {
     public static void requestJoinGroup(User user, String name){
         Group group = GroupDatabase.getGroupFromName(name);
         group.addRequest(user.getUserId());
+        sendGroupRequest(user.getUsername(), group);
     }
 
     public void approveJoinGroup(String user, Group group){
