@@ -3,7 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -13,10 +12,12 @@ public class SignUpScreen extends JFrame {
     private JPasswordField passwordField;
     private JTextField emailField;
     private JButton datePickerButton;
-    private JButton button1;
+    private JButton loginButton;
     private JButton signUpButton;
-    private BackEnd backEnd = BackEnd.getInstance();
+    private static final UserManagement userManagement = UserManagement.getInstance();
     public SignUpScreen() {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(300,300);
         setVisible(true);
         setContentPane(panel1);
         signUpButton.addActionListener(new ActionListener() {
@@ -28,11 +29,13 @@ public class SignUpScreen extends JFrame {
                 if (email.isEmpty() || username.isEmpty() || password.isEmpty()) {
                     Error("please don't leave an empty field");
                 } else {
-                    if (backEnd.checkEmail(email)==null) {
-                        if(backEnd.checkUsername(username))
+                    if (!userManagement.isEmailInUse(email)) {
+                        if(userManagement.findUserByUsername(username)==null)
                         {
                             try {
-                                backEnd.createUser(email,password,username, new Date());
+                                userManagement.addUser(email,password,username, new Date());
+                                User loggedInUser=userManagement.validateUser(email,password);
+                                new MainScreen(loggedInUser);
                             } catch (IOException ex) {
                                 throw new RuntimeException(ex);
                             } catch (NoSuchAlgorithmException ex) {
@@ -50,6 +53,12 @@ public class SignUpScreen extends JFrame {
                     }
                 }
 
+            }
+        });
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new LoginScreen();
             }
         });
     }

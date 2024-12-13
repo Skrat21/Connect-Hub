@@ -9,9 +9,11 @@ public class ContentLoader extends JPanel {
     private JLabel profilePictureLabel;
     private JLabel timeLabel;
     private JLabel typeOfPostLabel;
-
+    private static final UserManagement userManagement = UserManagement.getInstance();
+    private static final ContentManagement contentManagement = ContentManagement.getInstance();
     public ContentLoader(Content content) throws IOException {
-        BackEnd backEnd = BackEnd.getInstance();
+        String authorId = content.getAuthorId();
+        User author = userManagement.findUserById(authorId);
         contentTextArea.setText(content.getContent());
         timeLabel.setText(content.getTimestamp().toString());
         String typeOfPost = "null";
@@ -22,18 +24,16 @@ public class ContentLoader extends JPanel {
             typeOfPost = "Story";
         }
         typeOfPostLabel.setText(typeOfPost);
-        User author = backEnd.getUser(content.getAuthorId());
         usernameLabel.setText(author.getUsername());
-        Icon profilePicture = (Icon) ImageResizer.resizeImage(author.getProfile().getProfilePhoto(), 50, 50);
+        Icon profilePicture = new ImageIcon(ImageResizer.resizeImage(author.getProfile().getProfilePhoto(), 50, 50));
         profilePictureLabel.setIcon(profilePicture);
-//        for(String imagePaths: content.getImagePath())
-//        {
-//            //loads image from filepaths
-//            Image image = null;
-//            JLabel jLabelPicture = new JLabel((Icon) image);
-//            imagesPanel.add(jLabelPicture);
-//        }
-        //refreshs content loader
+        for(String imagePaths:contentManagement.getContentLinks(content.getContentId()) )
+        {
+            //loads image from filepaths
+            JLabel label = new JLabel();
+            label.setIcon((Icon)ImageResizer.loadImage(imagePaths));
+            imagesPanel.add(label);
+        }
         repaint();
         revalidate();
         setVisible(true);

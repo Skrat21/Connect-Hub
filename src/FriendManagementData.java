@@ -1,12 +1,14 @@
 import java.util.ArrayList;
 
 public class FriendManagementData {
+    private String userId;
     private ArrayList<String> friendsListIds;
     private ArrayList<String> blockedListIds;
     private ArrayList<String> requestListIds;
     private ArrayList<String> pendingInvitesListIds;
 
-    public FriendManagementData() {
+    public FriendManagementData(String userId) {
+        this.userId=userId;
         ArrayList<String> friendsListIds = new ArrayList<>();
         ArrayList<String> blockedListIds = new ArrayList<>();
         ArrayList<String> requestListIds = new ArrayList<>();
@@ -28,8 +30,9 @@ public class FriendManagementData {
     public ArrayList<String> getRequestListIds() {
         return requestListIds;
     }
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+
+    public String getUserId()
+    {
+        return getUserId();
     }
 }
