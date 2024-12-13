@@ -15,9 +15,9 @@ public class ContentManagement {
             idb.storeContent(paths, contentId);
             String[] newImagePaths = idb.getContentLinks(contentId);
             if (type.equals("Story")) {
-                content = new Story(userId, newImagePaths, LocalDateTime.now(), LocalDateTime.now().plusDays(1), description);
+                content = new Story(userId, newImagePaths, LocalDateTime.now(), LocalDateTime.now().plusDays(1), description, contentId);
             } else {
-                content = new Post(userId, newImagePaths, LocalDateTime.now(), description);
+                content = new Post(userId, newImagePaths, LocalDateTime.now(), description, contentId);
             }
             cdb.storeContent(content);
         } catch (IOException e) {

@@ -18,6 +18,7 @@ public class AddPost extends JFrame {
 
     public AddPost(User currentUser) {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(300, 300);
         setLocationRelativeTo(null);
         setContentPane(panel1);
         setVisible(true);
