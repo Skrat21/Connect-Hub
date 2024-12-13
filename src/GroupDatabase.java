@@ -39,7 +39,6 @@ public class GroupDatabase {
         }
     }
 
-
     public static void deleteGroup(Group group) {
         ArrayList<Group> groups = readJsonFile();
         groups.remove(group);
