@@ -170,7 +170,7 @@ public class MainScreen extends JFrame {
                 loggedinProfile.getProfilePhoto(), 150, 150)));
         bioTextPane.setText(loggedinProfile.getBio());
         contentPanel.removeAll();
-        ArrayList<Content> userPosts = contentDatabase.getUserPosts(loggedinUser.getUserId());
+        ArrayList<Post> userPosts = contentDatabase.getUserPosts(loggedinUser.getUserId());
         for(Content post:userPosts)
         {
             contentPanel.add(new ContentLoader(post));
@@ -185,7 +185,7 @@ public class MainScreen extends JFrame {
         for(String friendId: allFriendsId)
         {
             User friend = userManagement.findUserById(friendId);
-            ArrayList<Content> friendContent = contentDatabase.getUserPosts(friendId);
+            ArrayList<Post> friendContent = contentDatabase.getUserPosts(friendId);
             for(Content content: friendContent)
             {
                 friendsContentPage.add(new ContentLoader(content));

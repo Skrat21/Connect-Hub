@@ -15,7 +15,7 @@ public class Search {
     private JButton removeFriendButton;
     private JButton addFriendButton;
     private static final FriendManagement friendManagment=FriendManagement.getInstance();
-    private  static final GroupManagement groupManagment =GroupManagement.getInstance() ;
+    private static final UserManagement userManagement=UserManagement.getInstance();
     private final User  loggedinUser ;
     private DefaultListModel<String> listModel;
     public Search( User user) {
@@ -104,16 +104,9 @@ public class Search {
         joinGroupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String currentUsername = formattedTextField1.getText(); // Get the username from the text field
                 String groupName = list1.getSelectedValue().toString(); // Get the selected group name from the list
-
-                // Call GroupManagement to join the group
-                boolean result = groupManagment.joinGroup(currentUsername, groupName);
-                if (result) {
-                    JOptionPane.showMessageDialog(null, "Joined group: " + groupName);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Failed to join group.");
-                }
+                String userId = loggedinUser.getUserId();
+                GroupManagement.requestJoinGroup(loggedinUser, groupName);
             }
         });
         leaveGroupButton.addActionListener(new ActionListener() {
@@ -121,12 +114,7 @@ public class Search {
             public void actionPerformed(ActionEvent e) {
                 String currentUsername = formattedTextField1.getText(); // Get the username from the text field
                 String groupName = list1.getSelectedValue().toString(); // Get the selected group name
-                boolean result =groupManagment.leaveGroup(currentUsername, groupName);
-                if (result) {
-                    JOptionPane.showMessageDialog(null, "Left group: " + groupName);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Failed to leave group.");
-                }
+                GroupManagement.leaveGroup(currentUsername, groupName);
             }
         });
         viewGroupButton.addActionListener(new ActionListener() {
