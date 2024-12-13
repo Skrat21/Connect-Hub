@@ -29,6 +29,9 @@ public class MainScreen extends JFrame {
     private JButton showFriendListButton;
     private JButton showPendingInvitesButton;
     private JButton showFriendRequestsButton;
+    private JButton entersButton;
+    private JButton visitGroupButton;
+    private JTextField textGroup;
     private static final UserManagement userManagement = UserManagement.getInstance();
     private static final ContentDatabase contentDatabase = ContentDatabase.getInstance();
     private static final FriendManagement friendManagement = FriendManagement.getInstance();
@@ -159,6 +162,18 @@ public class MainScreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new AddPost(loggedinUser);
+            }
+        });
+        entersButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        visitGroupButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
