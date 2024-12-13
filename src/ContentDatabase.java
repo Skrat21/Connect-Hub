@@ -7,39 +7,83 @@ import java.util.ArrayList;
 
 public class ContentDatabase {
     private static ContentDatabase contentDatabaseInstance = null;
+
     public void storeContent(Content content) {
-        ArrayList<Content> contents = readJsonFile();
-        contents.add(content);
-        writeJsonFile(contents);
+        if (content instanceof Post) {
+            ArrayList<Post> posts = readJsonFilePosts();
+            posts.add((Post) content);
+            writeJsonFilePosts(posts);
+        }
+        if (content instanceof Story) {
+            ArrayList<Story> stories = readJsonFileStories();
+            stories.add((Story) content);
+            writeJsonFileStories(stories);
+        }
     }
 
-    public Content getContent(String contentId) {
-        ArrayList<Content> content = readJsonFile();
-        for (Content contents : content) {
-            if (contents.getContentId().equals(contentId)) {
-                return contents;
+//    public Content getContent(String contentId) {
+//        ArrayList<Content> contents = readJsonFile();
+//        for (Content content : contents) {
+//            if (content.getContentId().equals(contentId)) {
+//                return content;
+//            }
+//        }
+//        return null;
+//    }
+
+    public Post getPost(String contentId) {
+        ArrayList<Post> posts = readJsonFilePosts();
+        for (Post post : posts) {
+            if (post.getContentId().equals(contentId)) {
+                return post;
             }
         }
         return null;
     }
 
-    public ArrayList<Content> getUserPosts(String userId){
-        ArrayList<Content> content = readJsonFile();
-        ArrayList<Content> userPosts = new ArrayList<>();
-        for (Content contents : content) {
-            if (contents.getAuthorId().equals(userId)) {
-                userPosts.add(contents);
+    public Story getStory(String contentId){
+        ArrayList<Story> stories = readJsonFileStories();
+        for(Story story: stories)
+        {
+            if(story.getContentId().equals(contentId))
+            {
+                return story;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Post> getUserPosts(String userId) {
+        ArrayList<Post> posts = readJsonFilePosts();
+        ArrayList<Post> userPosts = new ArrayList<>();
+        for (Post post : posts) {
+            if (post.getAuthorId().equals(userId)) {
+                userPosts.add(post);
             }
         }
         return userPosts;
     }
+    public ArrayList<Story> getUserStories(String userId)
+    {
+        ArrayList<Story> stories = readJsonFileStories();
+        ArrayList<Story> userStories = new ArrayList<>();
+        for(Story story: stories)
+        {
+            if(story.getAuthorId().equals(userId))
+            {
+                userStories.add(story);
+            }
+        }
+        return null;
+    }
 
-    public ArrayList<Content> readJsonFile(){
-        try (Reader reader = new FileReader("Content.json")) {
-            Type listType = new TypeToken<ArrayList<Content>>() {}.getType();
+    public ArrayList<Post> readJsonFilePosts() {
+        try (Reader reader = new FileReader("Posts.json")) {
+            Type listType = new TypeToken<ArrayList<Content>>() {
+            }.getType();
             Gson gson = new Gson();
-            ArrayList<Content> content = gson.fromJson(reader, listType);
-            return (content != null) ? content : new ArrayList<>();
+            ArrayList<Post> post = gson.fromJson(reader, listType);
+            return (post != null) ? post : new ArrayList<>();
         } catch (FileNotFoundException e) {
             return new ArrayList<>();
         } catch (IOException e) {
@@ -48,23 +92,47 @@ public class ContentDatabase {
         }
     }
 
-    private void writeJsonFile(ArrayList<Content> content) {
-        try (Writer writer = new FileWriter("Content.json")) {
+    public ArrayList<Story> readJsonFileStories() {
+        try (Reader reader = new FileReader("Stories.json")) {
+            Type listType = new TypeToken<ArrayList<Content>>() {
+            }.getType();
             Gson gson = new Gson();
-            gson.toJson(content, writer);
+            ArrayList<Story> story = gson.fromJson(reader, listType);
+            return (story != null) ? story : new ArrayList<>();
+        } catch (FileNotFoundException e) {
+            return new ArrayList<>();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    private void writeJsonFilePosts(ArrayList<Post> posts) {
+        try (Writer writer = new FileWriter("Posts.json")) {
+            Gson gson = new Gson();
+            gson.toJson(posts, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    private void writeJsonFileStories(ArrayList<Story> stories) {
+        try (Writer writer = new FileWriter("Stories.json")) {
+            Gson gson = new Gson();
+            gson.toJson(stories, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     //singleton design pattern
-    public synchronized static ContentDatabase getInstance()
-    {
-        if(contentDatabaseInstance==null)
-        {
+    public synchronized static ContentDatabase getInstance() {
+        if (contentDatabaseInstance == null) {
             contentDatabaseInstance = new ContentDatabase();
         }
         return contentDatabaseInstance;
     }
+
     private ContentDatabase() {
 
     }
